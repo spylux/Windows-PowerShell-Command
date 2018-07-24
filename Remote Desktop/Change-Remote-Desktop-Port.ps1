@@ -19,11 +19,11 @@ $KeyName ="PortNumber"
 
 try {
     Set-ItemProperty -Path $RegistryPath -Name $KeyName -Value $NewPort -Force | Out-Null
+    Write-Host "RDP Port has been changed, please restart your computer to apply the changes"
+    Write-Host -NoNewLine 'Press any key to continue...';
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 }
 catch {
     Write-Host "Error. Please check or contact your administrator" -ForegroundColor Red
 }
 
-Write-Host "RDP Port has been changed, please restart your computer to apply the changes"
-Write-Host -NoNewLine 'Press any key to continue...';
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
